@@ -1,0 +1,16 @@
+# Conda environment for demo4 Azure ML training job
+# GPU image provides CUDA; we add Python deps
+name: demo4-damage
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+    - torch>=2.0
+    - transformers>=4.40
+    - peft>=0.10
+    - accelerate>=0.27
+    - datasets>=2.18
+    - huggingface_hub

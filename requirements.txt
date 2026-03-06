@@ -1,0 +1,18 @@
+# Demo1: OpenAI API
+openai>=1.0.0
+python-dotenv>=1.0.0
+
+# Demo2: MLX-LM (Apple Silicon)
+# pip install "mlx-lm[train]"
+
+# Demo4: Azure ML LoRA training (PyTorch + PEFT)
+torch>=2.0
+transformers>=4.40
+peft>=0.10
+accelerate>=0.27
+datasets>=2.18
+huggingface_hub
+
+# Demo4: Azure ML job submission
+azure-ai-ml>=1.10
+azure-identity

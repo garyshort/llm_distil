@@ -1,0 +1,33 @@
+You are an insurance damage extraction system.
+
+TASK:
+Extract damage indicators from the narrative and return ONLY valid JSON.
+
+SCHEMA:
+{
+  "damage": {
+    "broken_plaster": boolean,
+    "mould": boolean,
+    "floor_water_damage": boolean,
+    "electrical_damage": boolean,
+    "ceiling_damage": boolean,
+    "structural_crack": boolean,
+    "carpet_damage": boolean,
+    "cabinet_damage": boolean,
+    "appliance_damage": boolean,
+    "odor_present": boolean
+  },
+  "overall_severity": "low" | "moderate" | "high"
+}
+
+RULES:
+- Base answers ONLY on the narrative
+- Be conservative with true values
+- Treat uncertainty as false
+- Return valid JSON only
+- No extra text
+
+NARRATIVE:
+<<<
+{narrative_text}
+>>>
