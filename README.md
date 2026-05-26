@@ -8,11 +8,11 @@ A set of demos illustrating the journey from a cloud LLM (GPT) to a locally fine
 
 | Demo | What it shows |
 |------|---------------|
-| **Demo 1** | Call a cloud LLM (OpenAI/Azure GPT) with a prompt + narrative; get structured JSON output |
-| **Demo 2** | Generate synthetic training data, train a LoRA adapter on Apple Silicon (MLX), and evaluate |
-| **Demo 3** | Run the same prompt as Demo 1 against the locally fine-tuned MLX model (no cloud) |
-| **Demo 4** | Same task as Demo 2, but train on **Azure Machine Learning** with PyTorch, Hugging Face, and PEFT |
-| **Demo 5** | Vision distillation: an Azure OpenAI vision teacher labels public Oxford-IIIT cat/dog images to produce chat-format training data for a Qwen2-VL student |
+| **Demo&nbsp;1** | Call a cloud LLM (OpenAI/Azure GPT) with a prompt + narrative; get structured JSON output |
+| **Demo&nbsp;2** | Generate synthetic training data, train a LoRA adapter on Apple Silicon (MLX), and evaluate |
+| **Demo&nbsp;3** | Run the same prompt as Demo 1 against the locally fine-tuned MLX model (no cloud) |
+| **Demo&nbsp;4** | Same task as Demo 2, but train on **Azure Machine Learning** with PyTorch, Hugging Face, and PEFT |
+| **Demo&nbsp;5** | Vision distillation: an Azure OpenAI vision teacher labels public Oxford-IIIT cat/dog images to produce chat-format training data for a Qwen2-VL student |
 
 ---
 
@@ -127,44 +127,35 @@ python demo3/run.py
 
 ## Demo 4: Azure ML LoRA Training
 
-**What it shows:** The same task as Demo 2 (insurance damage extraction) but training on **Azure Machine Learning** with PyTorch, Hugging Face Transformers, and PEFT LoRA. Uses the same JSONL data format from Demo 2.
+**What it shows:** The same task as Demo 2 (insurance damage extraction) but training on **Azure Machine Learning** with PyTorch, Hugging Face Transformers, and PEFT LoRA.
 
-**Local training (optional, requires GPU):**
+**Quick start:**
 
 ```bash
 cd demo4
-python train.py --data-dir ../demo2/data --output-dir ./outputs
-```
-
-**Quick demo (~2 min):**
-
-```bash
 python train.py --data-dir ../demo2/data --output-dir ./outputs --demo
 ```
 
-**Azure ML job submission:**
+Requires Demo 2's `demo2/data/` (run Demo 2 first). For full training and Azure ML job submission, an Azure subscription with a GPU compute cluster is required.
 
-1. Add to `demos/.env`:
-   ```
-   AZURE_SUBSCRIPTION_ID=<your-subscription-id>
-   AZURE_RESOURCE_GROUP=<your-resource-group>
-   AZUREML_WORKSPACE_NAME=<your-workspace-name>
-   ```
+See [demo4/README.md](demo4/README.md) for local training, Azure ML job submission, env vars, and model variants.
 
-2. Create a GPU compute cluster in Azure ML Studio (e.g. `Standard_NC6s_v3`).
+---
 
-3. Submit the job:
-   ```bash
-   python demo4/submit_job.py
-   ```
-   For a ~2 min demo: `python demo4/submit_job.py --demo`
+## Demo 5: Vision Distillation (Cats vs Dogs)
 
-4. Monitor in Azure ML Studio. Adapters are saved to the job outputs.
+**What it shows:** An Azure OpenAI vision model acts as a **teacher**, labelling public Oxford-IIIT cat/dog images and producing chat-format training data for fine-tuning an open-source vision-language model (e.g. Qwen2-VL) as a **student**. Unlike Demos 1-4 (text extraction), this demo is multimodal.
 
-**Models:**
+**Quick start:**
 
-- Full: `Qwen/Qwen2.5-7B-Instruct` (~3–4 h on NC6s_v3)
-- Demo: `Qwen/Qwen2.5-0.5B-Instruct` (~2 min)
+```bash
+cd demo5
+python create_training_data.py --dry-run --max-per-class cat:5,dog:5
+```
+
+The first run downloads the Oxford-IIIT Pet Dataset (~800 MB, CC BY-SA 4.0).
+
+See [demo5/README.md](demo5/README.md) for the full pipeline, CLI reference, environment variables, output schema, and metadata field reference.
 
 ---
 
@@ -216,9 +207,9 @@ demos/
 
 ---
 
-## Schema (Damage Extraction)
+## Schema (Demos 1-4 — Damage Extraction)
 
-All demos use the same JSON schema:
+Demos 1-4 share the same JSON schema for insurance damage extraction (Demo 5 uses its own schema; see [demo5/README.md](demo5/README.md)):
 
 ```json
 {
