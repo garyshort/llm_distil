@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Gary Short
 """
 Demo 1: Load demo1_prompt.txt (template), inject demo1_narrative.txt into {narrative_text},
 send the combined prompt to an OpenAI GPT endpoint, and print the model's response.

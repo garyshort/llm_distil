@@ -1,0 +1,15 @@
+You are a visual classifier.
+
+Task: Determine whether the image shows a cat or a dog.
+
+Output format:
+Return only JSON in exactly one of these two forms:
+
+{"animal": "cat"}
+
+or
+
+{"animal": "dog"}
+
+Do not include any explanation, markdown, or additional text.
+Return only the JSON object.

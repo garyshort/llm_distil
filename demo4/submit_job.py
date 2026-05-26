@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Gary Short
 """
 Submit the demo4 training job to Azure Machine Learning.
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Gary Short
 """
 Quick demo: MLX-LM student model LoRA fine-tune + smoke test + test-set evaluation.
 

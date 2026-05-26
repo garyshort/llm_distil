@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Gary Short
 """
 Split training_data.jsonl into MLX-style train/valid/test under data/.
 Uses a fixed seed for reproducible splits: 800 train, 100 valid, 100 test.

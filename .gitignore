@@ -4,6 +4,8 @@ venv/
 # Generated / artifacts
 adapters_*/
 outputs/
+demo5/dataset/
+demo5/training*.jsonl
 
 # Python
 __pycache__/

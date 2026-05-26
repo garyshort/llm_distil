@@ -16,3 +16,7 @@ huggingface_hub
 # Demo4: Azure ML job submission
 azure-ai-ml>=1.10
 azure-identity
+
+# Demo5: Vision distillation (uses openai + python-dotenv from Demo 1)
+# Optional: tqdm  # progress bars
+

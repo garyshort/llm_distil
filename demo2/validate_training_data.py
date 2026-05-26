@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Gary Short
 """
 Validate training_data.jsonl: required keys (prompt, completion), well-formed JSON
 per line and inside completion, and completion schema (damage keys + overall_severity).

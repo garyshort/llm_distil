@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Gary Short
 """
 Demo 3: Same test as demo1 (prompt + narrative) but run against the local MLX model
 with LoRA adapters (Qwen2.5-7B + adapters_qwen25_7b_damage).

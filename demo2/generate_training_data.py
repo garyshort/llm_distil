@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Gary Short
 """
 Generate training_data.jsonl with prompt/completion pairs for insurance damage extraction.
 Completions are correct by construction: we choose damage flags and severity first,

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Gary Short
 """
 Demo 4: LoRA fine-tuning on Azure ML using PyTorch + Hugging Face.
 

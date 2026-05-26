@@ -12,6 +12,7 @@ A set of demos illustrating the journey from a cloud LLM (GPT) to a locally fine
 | **Demo 2** | Generate synthetic training data, train a LoRA adapter on Apple Silicon (MLX), and evaluate |
 | **Demo 3** | Run the same prompt as Demo 1 against the locally fine-tuned MLX model (no cloud) |
 | **Demo 4** | Same task as Demo 2, but train on **Azure Machine Learning** with PyTorch, Hugging Face, and PEFT |
+| **Demo 5** | Vision distillation: an Azure OpenAI vision teacher labels public Oxford-IIIT cat/dog images to produce chat-format training data for a Qwen2-VL student |
 
 ---
 
@@ -201,11 +202,16 @@ demos/
 │   └── adapters_qwen25_7b_damage/   # LoRA adapters (generated)
 ├── demo3/
 │   └── run.py                 # Local MLX inference
-└── demo4/
-    ├── train.py               # PyTorch/PEFT LoRA training
-    ├── submit_job.py          # Azure ML job submission
-    ├── environment.yml       # Conda env for Azure ML
-    └── README.md              # Demo 4 details
+├── demo4/
+│   ├── train.py               # PyTorch/PEFT LoRA training
+│   ├── submit_job.py          # Azure ML job submission
+│   ├── environment.yml       # Conda env for Azure ML
+│   └── README.md              # Demo 4 details
+└── demo5/
+    ├── create_training_data.py # Teacher-labelling pipeline (cats vs dogs)
+    ├── cat_dog_prompt.txt      # Teacher prompt
+    ├── README.md               # Demo 5 details
+    └── dataset/                # Generated dataset + Oxford-IIIT cache (ignored)
 ```
 
 ---
